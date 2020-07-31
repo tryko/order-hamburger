@@ -1,6 +1,7 @@
 import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
+import FlexWrapper from './components/FlexWrapper/FlexWrapper';
 import MakeHamburger from './components/MakeHamburger/MakeHamburger';
 import Toppings from './components/Toppings/Toppings';
 const App: React.FC = () => {
@@ -10,10 +11,13 @@ const App: React.FC = () => {
         <>
             <Header />
             {location.pathname}
-            <Switch>
-                <Route path="/base" component={MakeHamburger} />
-                <Route path="/toppings" component={Toppings} />
-            </Switch>
+            <FlexWrapper>
+                <Switch>
+                    <Route exact path="/" component={() => <div>home</div>} />
+                    <Route exact path="/base" component={MakeHamburger} />
+                    <Route exact path="/toppings" component={Toppings} />
+                </Switch>
+            </FlexWrapper>
         </>
     );
 };
