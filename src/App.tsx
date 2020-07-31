@@ -1,8 +1,8 @@
 import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
-import Home from './views/Home/Home';
 import Header from './components/Header/Header';
-
+import MakeHamburger from './components/MakeHamburger/MakeHamburger';
+import Toppings from './components/Toppings/Toppings';
 const App: React.FC = () => {
     const location = useLocation();
 
@@ -11,7 +11,8 @@ const App: React.FC = () => {
             <Header />
             {location.pathname}
             <Switch>
-                <Route path="/" component={Home} />
+                <Route path="/base" component={MakeHamburger} />
+                <Route path="/toppings" component={Toppings} />
             </Switch>
         </>
     );
