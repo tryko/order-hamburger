@@ -1,11 +1,18 @@
 import React from 'react';
-
+import { useParams } from 'react-router-dom';
+import './Home.css';
 interface Iprops {
-    name: string
+    name: string;
 }
 
-const Home: React.FC<Iprops> = (props) => {
-return <div className="Home">{props.}</div>;
+const Home: React.FC<Iprops> = ({ name = 'Home' }) => {
+    const { par } = useParams();
+    return (
+        <div className="Home">
+            {par}
+            <div className="component-question">{name}</div>
+        </div>
+    );
 };
 
 export default Home;
