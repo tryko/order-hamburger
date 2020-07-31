@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route, Switch, useLocation } from 'react-router-dom';
 import Header from './components/Header/Header';
-import FlexWrapper from './components/FlexWrapper/FlexWrapper';
-import MakeHamburger from './components/MakeHamburger/MakeHamburger';
-import Toppings from './components/Toppings/Toppings';
+import FlexWrapper from './components/FlexWrapper';
+import MakeHamburger from './components/MakeHamburger';
+import Toppings from './components/Toppings';
 const App: React.FC = () => {
     const location = useLocation();
 
