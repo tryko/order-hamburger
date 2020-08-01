@@ -4,12 +4,12 @@ interface Iprops {
     clickHandler: () => void;
 }
 
-const MakeHamburger = (props: Iprops) => {
+const MakeHamburger = ({ clickHandler }: Iprops) => {
     return (
         <div className="w-64 h-64 text-center">
             Make Your Hamburger
             <div>
-                <button className="bg-gray-300 w-20 rounded-full" onClick={() => props.clickHandler()}>
+                <button className="bg-gray-300 w-20 rounded-full" onClick={() => clickHandler()}>
                     Create
                 </button>
             </div>
