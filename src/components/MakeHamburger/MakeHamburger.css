@@ -1,0 +1,8 @@
+.link {
+    display: block;
+    width: 200px;
+    text-align: center;
+    align-self: center;
+    border-radius: 5px;
+    background-color: burlywood;
+}
