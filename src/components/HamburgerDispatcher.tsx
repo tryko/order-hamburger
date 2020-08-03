@@ -5,12 +5,18 @@ import { questions } from '../store/initialState';
 
 const HamburgerDispatcher: React.FC = () => {
    const { questionID } = useParams();
-   const question = questions[questionID];
+   const q = questions[questionID];
 
    return (
       <div>
-         {question && <Question {...question} />}
-         {!question && <div>question not found</div>}
+         {q && (
+            <Question
+               text={q.text}
+               options={q.options}
+               nextPathPar={q.nextPathPar}
+            />
+         )}
+         {!q && <div>question not found</div>}
       </div>
    );
 };
