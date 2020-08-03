@@ -7,11 +7,11 @@ const Question: React.FC<IQuestion> = ({ text, options, nextPathPar }) => {
    return (
       <div>
          <div>{text}</div>
-         <ul>
-            {options.map((op, i) => (
-               <li key={i + op}> {op}</li>
-            ))}
-         </ul>
+         {options.map((op, i) => (
+            <div>
+               <input name="radio" key={i + op} type="radio" /> {op}
+            </div>
+         ))}
          <Link to={nextPathPar}>Next</Link>
       </div>
    );

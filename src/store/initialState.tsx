@@ -6,6 +6,11 @@ export const questions: IQuestions = {
       options: ['A', 'B', 'C'],
       nextPathPar: 'toppings',
    },
+   meat: {
+      text: 'How would you like your meat?',
+      options: ['rare', 'medium well', 'well done'],
+      nextPathPar: 'toppings',
+   },
    toppings: {
       text: 'choose one topping',
       options: ['d', 'e', 'f'],
