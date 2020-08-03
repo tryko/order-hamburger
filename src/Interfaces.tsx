@@ -1,11 +1,11 @@
 type Option = string;
 
 export interface IQuestion {
-    question: string;
-    options: Option[];
-    nextPath: string;
+   questionTxt: string;
+   options: Option[];
+   nextPathParam: string;
 }
 
 export interface IQuestions {
-    [key: string]: IQuestion;
+   [key: string]: IQuestion;
 }
