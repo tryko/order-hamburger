@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import Question from './Question';
 import { questions } from '../store/initialState';
 
-export default function HamburgerDispatcher() {
+const HamburgerDispatcher: React.FC = () => {
    const { questionID } = useParams();
    const question = questions[questionID];
 
@@ -13,4 +13,6 @@ export default function HamburgerDispatcher() {
          {!question && <div>question not found</div>}
       </div>
    );
-}
+};
+
+export default HamburgerDispatcher;
