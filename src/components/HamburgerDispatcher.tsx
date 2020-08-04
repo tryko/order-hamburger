@@ -1,26 +1,39 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 import { useParams } from 'react-router-dom';
 import Question from './Question';
 import { questions } from '../store/initialState';
+import { IOrder } from '../Interfaces';
 
 interface IProps {
-   handleOnClick: (type: string, value: string) => void;
+   handleDone: (type: string, value: string) => void;
+   order: IOrder;
 }
 
-const HamburgerDispatcher: React.FC<IProps> = ({ handleOnClick }) => {
+const HamburgerDispatcher: React.FC<IProps> = ({ handleDone, order }) => {
    const { questionID } = useParams();
-   const q = questions[questionID];
+   const question = questions.find(q => q.id === questionID);
+   const chosen = order[questionID];
+
+   const handleClick = (clicked: string) => {
+      handleDone(questionID, clicked);
+   };
 
    return (
       <div>
-         {q && (
-            <Question
-               question={q}
-               handleOnClick={handleOnClick}
-               type={questionID}
-            />
+         {question && (
+            <div>
+               <Question
+                  title={question.text}
+                  options={question.options}
+                  handleClick={handleClick}
+                  chosen={chosen}
+               />
+               <Link to={question.nextPathPar}>Next</Link>
+            </div>
          )}
-         {!q && <div>question not found</div>}
+         {!question && <div>question not found</div>}
       </div>
    );
 };
