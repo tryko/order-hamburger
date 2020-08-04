@@ -7,26 +7,34 @@ import HamburgerDispatcher from './components/HamburgerDispatcher';
 import Ingredients from './components/Ingredients';
 import './assets/main.css';
 
+import { initialOrder } from './store/initialState';
+import { IOrder } from './Interfaces';
+
 const App: React.FC = () => {
    const [isMakeHamburger, setIsMakeHamburger] = useState(false);
+   const [order, setOrder] = useState(initialOrder);
    const { pathname } = useLocation();
 
    useEffect(() => {
       setIsMakeHamburger(pathname !== '/');
    }, [pathname]);
 
+   const handleOnClick = (type: string, value: string) => {
+      setOrder((prevOrder: IOrder) => {
+         return { ...prevOrder, [type]: value };
+      });
+   };
+
    return (
       <div className=" h-full">
          <Header />
-         {isMakeHamburger && <Ingredients />}
+         {isMakeHamburger && <Ingredients order={order} />}
          <FlexWrapper>
             <Switch>
                <Route exact path="/" component={MakeHamburger} />
-               <Route
-                  exact
-                  path="/hamburger/:questionID"
-                  component={HamburgerDispatcher}
-               />
+               <Route exact path="/hamburger/:questionID">
+                  <HamburgerDispatcher handleOnClick={handleOnClick} />
+               </Route>
             </Switch>
          </FlexWrapper>
       </div>

@@ -3,7 +3,11 @@ import { useParams } from 'react-router-dom';
 import Question from './Question';
 import { questions } from '../store/initialState';
 
-const HamburgerDispatcher: React.FC = () => {
+interface IProps {
+   handleOnClick: (type: string, value: string) => void;
+}
+
+const HamburgerDispatcher: React.FC<IProps> = ({ handleOnClick }) => {
    const { questionID } = useParams();
    const q = questions[questionID];
 
@@ -11,9 +15,9 @@ const HamburgerDispatcher: React.FC = () => {
       <div>
          {q && (
             <Question
-               text={q.text}
-               options={q.options}
-               nextPathPar={q.nextPathPar}
+               question={q}
+               handleOnClick={handleOnClick}
+               type={questionID}
             />
          )}
          {!q && <div>question not found</div>}

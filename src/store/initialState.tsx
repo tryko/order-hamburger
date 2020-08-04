@@ -1,4 +1,4 @@
-import { IQuestions } from './../Interfaces';
+import { IQuestions, IIngredient, IOrder } from './../Interfaces';
 
 export const questions: IQuestions = {
    bread: {
@@ -17,3 +17,17 @@ export const questions: IQuestions = {
       nextPathPar: '',
    },
 };
+
+export const orderTemplate: IIngredient[] = [
+   { type: 'bread', value: 'whole wheat' },
+   { type: 'meat', value: 'rare' },
+   { type: 'toppings', value: 'omelet' },
+];
+
+export const initialOrder: IOrder = {
+   bread: '',
+   meat: '',
+   toppings: '',
+};
+
+export const ingredientsDisplay = ['toppings', 'meat', 'bread'];
