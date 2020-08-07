@@ -8,7 +8,7 @@ interface IProps {
 
 const Ingredients: React.FC<IProps> = ({ order }) => {
    return (
-      <div className="bg-red-200 absolute w-56 h-128 flex justify-center flex-col">
+      <div className="bg-red-200 absolute w-56 h-128 flex justify-center flex-col bg-opacity-0">
          {ingredientsDisplay.map((ing, i) => (
             <div key={i + ing} className=" h-5">
                <Link to={`./${ing}`}>{order[ing]}</Link>

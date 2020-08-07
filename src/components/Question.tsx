@@ -17,14 +17,16 @@ const Question: React.FC<IProps> = ({
          <div>{title}</div>
          {options.map((op, i) => (
             <div>
-               <input
-                  name="radio"
-                  key={i + op}
-                  type="radio"
-                  checked={chosen === op}
-                  onClick={() => handleClick(op)}
-               />{' '}
-               {op}
+               <label>
+                  <input
+                     name="radio"
+                     key={i + op}
+                     type="radio"
+                     checked={chosen === op}
+                     onClick={() => handleClick(op)}
+                  />{' '}
+                  {op}
+               </label>
             </div>
          ))}
       </div>

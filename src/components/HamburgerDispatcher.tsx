@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import Question from './Question';
 import { questions } from '../store/initialState';
 import { IOrder } from '../Interfaces';
+import FlexWrapper from './FlexWrapper';
 
 interface IProps {
    handleDone: (type: string, value: string) => void;
@@ -21,9 +22,9 @@ const HamburgerDispatcher: React.FC<IProps> = ({ handleDone, order }) => {
    };
 
    return (
-      <div>
+      <FlexWrapper>
          {question && (
-            <div>
+            <div className="flex justify-center flex-col w-64">
                <Question
                   title={question.text}
                   options={question.options}
@@ -34,7 +35,7 @@ const HamburgerDispatcher: React.FC<IProps> = ({ handleDone, order }) => {
             </div>
          )}
          {!question && <div>question not found</div>}
-      </div>
+      </FlexWrapper>
    );
 };
 
